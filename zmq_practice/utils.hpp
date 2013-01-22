@@ -1,3 +1,4 @@
+#include "boost/format.hpp"
 #include "boost/thread.hpp"
 
 // from http://ricanet.com/new/view.php?id=blog/050807 and http://ricanet.com/new/view.php?id=blog/050811a
@@ -19,5 +20,7 @@ public:
 private:
     boost::detail::basic_timed_mutex& _mutex;
 };
-
 #define synchronized(x) if (AutoLock __ = x) assert(0); else
+
+void log(const std::string, const std::string);
+void log(const std::string, const boost::format);
