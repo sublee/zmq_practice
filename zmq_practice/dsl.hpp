@@ -6,16 +6,16 @@ class AutoLock
 public:
     AutoLock(boost::detail::basic_timed_mutex& mutex) : _mutex(mutex)
     {
-		_mutex.lock();
+        _mutex.lock();
     }
     ~AutoLock()
     {
-		_mutex.unlock();
+        _mutex.unlock();
     }
-	operator bool()
-	{
-		return false;
-	}
+    operator bool()
+    {
+        return false;
+    }
 private:
     boost::detail::basic_timed_mutex& _mutex;
 };
