@@ -1,8 +1,11 @@
 #include "zmq.hpp"
 
 #include <string>
+#include <vector>
 
-void server(zmq::context_t&, const std::string, const std::string);
-void client(zmq::context_t&, const std::string, const std::string);
-void publisher(zmq::context_t&, const std::string, const std::string);
-void subscriber(zmq::context_t&, const std::string, const std::string);
+void run_server(zmq::context_t &, const std::string &,
+                const std::vector<const std::string> &);
+void run_client(zmq::context_t &, const std::string &,
+                const std::vector<const std::string> &);
+void run_proxy(zmq::context_t &, const std::string &,
+               const std::string &, const std::string &, zmq::socket_t *);
